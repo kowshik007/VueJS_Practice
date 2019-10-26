@@ -39,42 +39,43 @@
     </header>
     <div class="container">
         <div id="root">
-            <form>
+            <form v-on:submit.prevent="registerUser">
                 <div class="form-group">
                     <label for="firstName">First Name</label>
                     <input type="text" class="form-control" id="firstName" placeholder="Enter first name"
-                        v-model="Register.firstName" autofocus>
+                        v-model="Register.firstName" required>
                 </div>
                 <div class="form-group">
                     <label for="lastName">Last Name</label>
                     <input type="text" class="form-control" id="lastName" placeholder="Enter last name"
-                        v-model="Register.lastName" autofocus>
+                        v-model="Register.lastName" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="Enter email" v-model="Register.exampleInputEmail1">
+                        placeholder="Enter email" v-model="Register.exampleInputEmail1" required>
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                         else.</small>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" v-model="Register.exampleInputPassword1">
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" v-model="Register.exampleInputPassword1" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword2">Confirm Password</label>
                     <input type="password" class="form-control" id="exampleInputPassword2"
-                        placeholder="Confirm Password" v-model="Register.exampleInputPassword2">
+                        placeholder="Confirm Password" v-model="Register.exampleInputPassword2" required>
                 </div>
                 <div class="form-group form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1" v-model="Register.exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">T &amp; C</label>
                 </div>
-                <input type="button" class="btn btn-primary" @click="registerUser" value="Submit"></input>
-            </form>
-            <p>Your first name is: {{Register.firstName}}</p>
+                <p>Your first name is: {{Register.firstName}}</p>
             <p>Your last name is: {{Register.lastName}}</p>
             <p>Your email name is: {{Register.exampleInputEmail1}}</p>
+            <p v-if="Register.exampleCheck1">Thanks for accepting the terms & conditions</p>
+            <button class="btn btn-primary">Review & Submit</button>
+            </form>
         </div>
     </div>
     <footer id="index-footer">
@@ -86,7 +87,7 @@
     <script src="./JS/vue.js"></script>
     <script src="./JS/jquery-3.4.1.min.js"></script>
     <script src="./JS/bootstrap.min.js"></script>
-    <script src="./JS/myScript.js"></script>
+    <script src="./JS/Register.js"></script>
 </body>
 
 </html>

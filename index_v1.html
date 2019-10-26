@@ -39,6 +39,30 @@
     </header>
     <div class="container">
         Hello World&excl;
+        <div id="root">
+            <h1 v-text="new Date()"></h1>
+            <h2>Total list of tasks</h2>
+            <ul>
+                <li v-for="task in listOfTasks">{{task.name}}</li>
+            </ul>
+            <h2>Completed Tasks</h2>
+            <ul>
+                <li v-for="task in getCompletedTasks">{{task.name}}</li>
+            </ul>
+            <h2>components</h2>
+            <task-list></task-list>
+
+            <div class="card">
+                <div class="card-title">
+                    Hi
+                </div>
+                <div class="card-body">
+                    message
+                </div>
+            </div>
+            <comment name="kowshik" message="This is really good"></comment>
+
+        </div>
     </div>
     <footer id="index-footer">
         <blockquote class="blockquote">
@@ -49,6 +73,7 @@
     <script src="./JS/vue.js"></script>
     <script src="./JS/jquery-3.4.1.min.js"></script>
     <script src="./JS/bootstrap.min.js"></script>
+    <script src="./JS/myScript2.js"></script>
 </body>
 
 </html>

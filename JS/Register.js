@@ -1,26 +1,19 @@
 Vue.config.devtools = true;
-new Vue(
+var app=new Vue(
     {
         "el": "#root",
         "data": {
-            "listPractices":['Kowshik','Karthik','Sujatha'],
             "Register":{
-                "firstName":"KK",
+                "firstName":"",
                 "lastName":"",
                 "exampleInputEmail1":"",
                 "exampleInputPassword1":"",
                 "exampleInputPassword2":"",
                 "exampleCheck1":false,
             },
-            "Registrations":[],
-            "AddValue":"",
-            "className":"class-bind"
+            "Registrations":[]
         },
         "methods":{
-            addName(){
-                this.listPractices.push(this.AddValue);
-                this.AddValue='';
-            },
             clearRegistrationForm(){
                 this.Register={
                     "firstName":"",
@@ -34,6 +27,7 @@ new Vue(
             registerUser(){
                 this.Registrations.push(this.Register);
                 this.clearRegistrationForm();
+                alert("User registration successful");
             }
         }
     }
