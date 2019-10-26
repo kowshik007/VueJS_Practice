@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./CSS/myStyles.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <title>VueJS Index</title>
+    <title>SignIn</title>
 </head>
-
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -20,14 +18,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="Register.html">Register</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="signIn.html">Login</a>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Login <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
@@ -37,8 +35,19 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-            <img src="./images/Welcome.jpeg" alt="Welcome Image" height="600px" width="100%">
+    <div class="container" id="root">
+        <form v-on:submit.prevent="signInUser">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="Enter email" v-model="SignInUserDetails.exampleInputEmail1" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" v-model="SignInUserDetails.exampleInputPassword1" required>
+            </div>
+            <button class="btn btn-primary">Submit</button>
+        </form>
     </div>
     <footer id="index-footer">
         <blockquote class="blockquote">
@@ -47,9 +56,8 @@
         </blockquote>
     </footer>
     <script src="./JS/vue.js"></script>
-    <script src="./JS/myScript.js"></script>
+    <script src="./JS/signIn.js"></script>
     <script src="./JS/jquery-3.4.1.min.js"></script>
     <script src="./JS/bootstrap.min.js"></script>
 </body>
-
 </html>
