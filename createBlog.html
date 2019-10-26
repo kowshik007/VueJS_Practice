@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./CSS/myStyles.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <title>VueJS Index</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Blog</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Login</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <div id="root">
+                <div class="row">
+                        <div class="col-md-12">
+                            <b>Title:</b> Jenny Odell on why we need to learn to do nothing: It&quot;s a reminder that you&quot;re alive
+                        </div>
+                        <div class="col-md-12" id="description">
+                            <b>Description: </b>Nearly two years ago, the artist and academic Jenny Odell gave a keynote address on “how to do nothing”. In it she talked about the impact of modern life’s ceaseless demands on our time and attention, “a situation where every waking moment has become pertinent to our making a living”. And she discussed how she herself had found respite in nature.
+
+                            Her talk was written for the Eyeo festival in Minneapolis – described as for the “creative technology community” and attended by the kind of blue-sky thinkers unlikely to balk at references to concepts like “observational eros”. Yet, when the 10,000-word transcript was published online, it went viral. Not only that: many people read it to the end.
+                            “It was really a surprise that it resonated with people outside of that pretty specific context, and that people would have the patience to read something that’s 45 minutes long, online,” says Odell, by phone from her home in Oakland, California. “I’ve gotten a lot of responses from people saying things like, ‘you’ve put words to a feeling that I’ve had for a long time’.”
+
+That a lengthy online treatise about shattered attention spans should manage to hold so many of them is ironic, it reflects wider concern. Odell writes of feeling compelled to seek refuge in her local rose garden in the days after Donald Trump became president, “like a deer going to a salt lick”: “It really did feel necessary, like a survival tactic.”
+
+She eventually understood the impulse in the words of the French philosopher, Gilles Deleuze: when we are “riddled with pointless talk, insane quantities of words and images”, the challenge is to search for “little gaps of solitude and silence in which [to] find … the rare, and even rarer thing that might be worth saying”.
+                        </div>
+                    </div>
+            <div class="row">
+                    <div class="col-md-12" v-for="comment in AllBlogs">
+                        <div v-if="comment.isVisible">
+                            <comment :name="comment.title" :message="comment.description"></comment>
+                        </div>
+                    </div>
+            </div>
+            <form v-on:submit.prevent="createBlog">
+                <div class="form-group">
+                    <label for="exampleInputTitle">Name:</label>
+                    <input type="text" class="form-control" id="exampleInputTitle" placeholder="Enter Name"
+                        v-model="blog_info.title" required autofocus>
+                </div>
+                <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Comment:</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                        v-model="blog_info.description" placeholder="Enter Comment"></textarea>
+                </div>
+                <button class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+    <footer id="index-footer">
+        <blockquote class="blockquote">
+            <p class="mb-0">created by&comma; Kowshik Kondapaneni</p>
+            <footer class="blockquote-footer">copyright <cite title="Source Title">&copy;2019</cite></footer>
+        </blockquote>
+    </footer>
+    <script src="./JS/vue.js"></script>
+    <script src="./JS/jquery-3.4.1.min.js"></script>
+    <script src="./JS/bootstrap.min.js"></script>
+    <script src="./JS/createBlog.js"></script>
+</body>
+
+</html>
