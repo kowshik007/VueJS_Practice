@@ -1,3 +1,4 @@
+app.use("/static", express.static('./static/'));
 Vue.config.devtools = true;
 var app=new Vue(
     {
