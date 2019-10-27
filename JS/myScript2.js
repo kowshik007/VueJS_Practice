@@ -1,4 +1,3 @@
-app.use("/static", express.static('./static/'));
 Vue.config.devtools = true;
 
 Vue.component('task-list',{
